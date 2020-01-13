@@ -1,5 +1,5 @@
 # FullStack
 
-FullStack 2020,
+FullStack 2020
 
 University of Helsinki
