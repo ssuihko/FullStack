@@ -11,6 +11,9 @@
 # production
 /build
 
+# teset
+public
+
 # misc
 .DS_Store
 .env.local
