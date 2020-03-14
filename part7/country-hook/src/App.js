@@ -15,14 +15,37 @@ const useField = (type) => {
   }
 }
 
-const useCountry = (name) => {
+
+const useCountry = name => {
+
   const [country, setCountry] = useState(null)
 
+  const maa = []
+
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/name/aruba?fullText=true').then((result) => {
-      setCountry(result.data)
-    })
-  }, [])
+
+    axios.get(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`).then((res) => { 
+        
+        maa.data = res.data[0]
+     //  console.log('maa kirjoitettu: ' , res.data[0])
+      //  console.log('maa datasta: ', res.data[0].name)
+       if(!(maa.data.name === res.data[0].name)) {
+      //   console.log('taalla')
+          maa.found = false
+          setCountry(maa)
+        } else {
+
+        maa.found = true
+        setCountry(maa)
+      }}
+    
+      )
+        .catch(e => {
+          setCountry(maa)
+      }
+      )
+     
+    }, [name, maa])
 
   return country
 }
