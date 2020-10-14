@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import './App.css';
 
-function App () {
+const App = () => {
 
   const [ countries, setCountries] = useState([])
   const [ filtering, setFilter ] = useState(true)
@@ -16,14 +16,12 @@ function App () {
   ? countries
   : countries.filter(c => c.name.toLowerCase().includes(filteredCountries.toLowerCase()))
 
-
   useEffect(() => {
     axios.get('https://restcountries.eu/rest/v2/all')
     .then(response => {
       setCountries(response.data)
     })
   }, [])
-
 
 function WeatherQuery(country ) {
 
@@ -48,16 +46,6 @@ function WeatherQuery(country ) {
  );
 
 }
- 
-const Filter = ( {filter, handleFilter} ) => {
-    return (
-      <form>
-    <div>
-      find countries <input value={filter} onChange={handleFilter} />
-    </div>
-    </form>
-    )
-  }
 
   const handleFilter = (event) => {
     setFilteredCountries(event.target.value)
@@ -70,8 +58,6 @@ const Filter = ( {filter, handleFilter} ) => {
 
   const Country = ( { country } ) => {
 
-    console.log(country.capital, ' is the country')
-    console.log(location.name, ' is the location')
     if(weather.length === 0 || (location.name !== country.capital && location.country !== null)  ) {
       WeatherQuery(country)
     }
@@ -129,7 +115,7 @@ const Filter = ( {filter, handleFilter} ) => {
       
     return (
       <div>
-        <Filter filter={filteredCountries} handleFilter={handleFilter} />
+        find countries <input value={filteredCountries} onChange={handleFilter} />
         <Show country={countriesShow} amount={numMatch} />
       </div>
     )
