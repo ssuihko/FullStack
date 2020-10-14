@@ -25,7 +25,6 @@ function App () {
   }, [])
 
 
-
 function WeatherQuery(country ) {
 
   const params = {
@@ -37,7 +36,6 @@ function WeatherQuery(country ) {
     .then(response => {
         if (!response.data.error) {
             const apiResponse = response.data;
-            console.log(`Current tempe} is ${apiResponse.current.temperature}℃`);
             setWeather(apiResponse.current)
             setLocation(apiResponse.location)
         } else {
@@ -74,11 +72,9 @@ const Filter = ( {filter, handleFilter} ) => {
 
     console.log(country.capital, ' is the country')
     console.log(location.name, ' is the location')
-    if(weather.length === 0 || (location.name !== country.capital && location.country !== null) ) {
+    if(weather.length === 0 || (location.name !== country.capital && location.country !== null)  ) {
       WeatherQuery(country)
     }
-
-    // WeatherQuery(country)
 
     return (
       <div>
