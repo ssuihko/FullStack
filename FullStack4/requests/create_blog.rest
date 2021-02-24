@@ -1,9 +1,0 @@
-POST http://localhost:3001/api/blogs 
-content-type: application/json
-
-{
-    "title": "hhhhh",
-    "author": "uuu", 
-    "url": "www.google.fi", 
-    "likes": 3
-}
