@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const BlogForm = ({
 
@@ -11,35 +11,38 @@ const BlogForm = ({
     url
 
 }) => { return (
-    <div>
+    <div className="formDiv">
         <h2>create blog</h2>
 
         <form onSubmit={handleSubmit}>
             <div>
                 title
                 <input
-                type="title"
-                value={title}
-                onChange={handleTitleChange}
+                    id='title'
+                    type="title"
+                    value={title}
+                    onChange={handleTitleChange}
                 />
             </div>
             <div>
                 author
                 <input
-                type="author"
-                value={author}
-                onChange={handleAuthorChange}
+                    id='author'
+                    type="author"
+                    value={author}
+                    onChange={handleAuthorChange}
                 />
             </div>
             <div>
                 url
                 <input
-                type="url"
-                value={url}
-                onChange={handleUrlChange}
+                    id='url'
+                    type="url"
+                    value={url}
+                    onChange={handleUrlChange}
                 />
             </div>
-            <button type="submit">create</button>
+            <button id="button-create" type="submit">create</button>
         </form>
     </div>
 )}

@@ -3,27 +3,23 @@ import '../style.css'
 
 const Notification = ({ message, success }) => {
 
-  if (message === null) {
-    return null
-  }
+    if (message === null) {
+        return null
+    }
 
-  if (message !== null) {
-  
-  }
+    if(success) {
+        return (
+            <div className="success">
+                {message}
+            </div>
+        )
+    }
 
-  if(success) {
     return (
-        <div className="success">
-          {message}
+        <div className="error">
+            {message}
         </div>
-      )
-  }
-
-  return (
-    <div className="error">
-      {message}
-    </div>
-  )
+    )
 }
 
 export default Notification
